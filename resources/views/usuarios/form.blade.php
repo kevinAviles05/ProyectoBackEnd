@@ -1,0 +1,1 @@
+formulario que tendrá datos en comun con edit
