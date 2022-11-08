@@ -15,7 +15,7 @@ use App\Http\Controllers\UsuarioController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('spa');
 });
 
 /*Route::get('/usuario', function () {

@@ -10,6 +10,7 @@
 <body>
 <h1 id="t1">Mostrar Usuarios</h1>
 <a id="nuevoUs" href="{{ url('usuario/create') }}">Nuevo Usuario</a>
+<a id="nuevoUs" href="{{ url('/..') }}">Atras</a>
 <br><br><br>
 <table id="tablaUs" >
     <thead >

@@ -1,0 +1,365 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Zilla+Slab:wght@300;400;600;700&display=swap");
+:root {
+  --rosado: #fe3281;
+  --beige: #fff9f1;
+  --blanco: #ffffff;
+  --negro: #000000;
+  --tipografiagruesa: "Oswald", sans-serif;
+  --tipografiadelgada: "Zilla Slab", serif;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Zilla Slab", serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: #333;
+  background-color: white;
+}
+header {
+  background-color: var(--beige);
+  border-top: 15px var(--rosado) solid;
+  padding-bottom: 20px;
+}
+.ancho {
+  max-width: 1200px;
+  margin: auto;
+  align-items: center;
+}
+.contenedor_cabecera {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.contenedor_cabecera picture {
+  width: 200px;
+}
+.contenedor_cabecera picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.iconoredes {
+}
+.iconoredes a {
+  margin-right: 30px;
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+  transition: all 0.5s ease;
+}
+.iconoredes a:hover {
+  color: var(--rosado);
+}
+.iconoredes a i {
+  font-size: 50px;
+}
+.contenedor_menu {
+  border: 2px var(--negro) solid;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: stretch;
+}
+.contenedor_iconomenu {
+  display: none;
+  text-align: center;
+}
+#iconomenu {
+  padding: 15px;
+  background-color: var(--rosado);
+  color: var(--blanco);
+  font-size: 16px;
+}
+.contenedor_menu li {
+}
+.contenedor_menu li a {
+  display: inline-block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: var(--negro);
+}
+.contenedor_menu li a:hover {
+  color: var(--rosado);
+}
+.slidefotos {
+  /* background-image: url(imagenes/fondopiedras.jpg); */
+  height: 400px;
+  position: relative;
+  /* background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0px -250px; */
+}
+.infoslide {
+  z-index: 20;
+  top: 0;
+  left: 0;
+  position: absolute;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--blanco);
+  width: 100%;
+}
+.infoslide h1 {
+  font-family: var(--tipografiadelgada);
+  font-weight: 700px;
+}
+.infoslide p {
+  font-size: 20px;
+  max-width: 600px;
+  text-align: center;
+  line-height: 30px;
+  font-weight: bold;
+  padding: 10px;
+}
+.contenedorbotones {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.btn_rosado {
+  background-color: var(--rosado);
+  border: 2px var(--rosado) solid;
+  color: var(--blanco);
+  padding: 15px 30px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.5s ease;
+}
+.btn_rosado:hover {
+  background-color: var(--negro);
+}
+.btn_borde {
+  background-color: transparent;
+  border: 2px var(--rosado) solid;
+  color: var(--blanco);
+  padding: 15px 30px;
+  text-decoration: none;
+  display: inline-block;
+}
+.btn_borde:hover {
+  background-color: var(--negro);
+}
+.beauty {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  padding-top: 10px;
+}
+.beauty article {
+  max-width: 550px;
+  padding: 10px;
+}
+.beauty p {
+  line-height: 30px;
+}
+.beauty picture {
+}
+.beauty picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* filter: grayscale(100%); */
+  /* filter: blur(5px); */
+  /* filter: sepia(100%); */
+  filter: opacity(25%);
+  transition: all .5s ease;
+}
+.beauty picture img:hover {
+  /* filter:grayscale(0%); */
+  filter: opacity(100%);
+}
+.colorDiferente {
+  background-color: var(--beige);
+}
+.colorDiferente h1 {
+  text-align: center;
+  font-size: 25px;
+}
+.padre_buscamostalento {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.padre_buscamostalento picture {
+  width: 600px;
+}
+.padre_buscamostalento picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  filter: sepia(30%);
+  transition: all .5s ease;;
+}
+.padre_buscamostalento picture img:hover {
+  filter: sepia(100%);
+}
+.texto_buscamosT {
+  max-width: 550px;
+  margin-left: 20px;
+}
+.mtm {
+  padding-top: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.secciones {
+  border-radius: 10px;
+  max-width: 380px;
+  background-color: #ffe8a4;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+  margin: 10px;
+}
+.secciones picture {
+  max-width: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0px;
+  border: 10px var(--blanco) solid;
+  transition: all .5s ease;
+}
+.secciones picture img {
+  width: 100%;
+  height: 100%;
+  transition: all .5s ease;
+}
+.secciones picture:hover {
+  box-shadow: 0px 0px 10px rgb(231, 152, 47);
+}
+.secciones picture img:hover {
+  transform: scale(1.2);
+}
+.secciones p {
+  text-align: justify;
+}
+.secciones a {
+  background-color: var(--rosado);
+  border: 2px var(--rosado) solid;
+  color: var(--blanco);
+  padding: 15px 30px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.5s ease;
+}
+.secciones h2 {
+  font-size: 22px;
+}
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 20px var(--rosado) solid;
+}
+footer a {
+  color: var(--rosado);
+  text-decoration: none;
+}
+/* css del slide de fotos */
+.rslides {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  }
+
+.rslides li {
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  }
+
+.rslides li:first-child {
+  position: relative;
+  display: block;
+  float: left;
+  }
+
+.rslides img {
+  display: block;
+  height: auto;
+  float: left;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border: 0;
+  }
+  .tit{
+    text-align: center;
+  }
+  /* css de la galeria de fotos */
+  .instalaciones{
+    display: grid;
+    grid-template-areas: "cinco dos uno uno" "cuatro tres uno uno" ;
+  }
+  .instalaciones figure{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+  }
+  .instalaciones figure a{
+    display: inline-block;
+    transition: all .5s ease;
+    height: 100%;
+  }
+  .instalaciones figure a:hover{
+    transform: scale(1.1);
+    filter: brightness(.5);
+  }
+  .instalaciones figure img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .foto1{
+    grid-area: uno;
+  }
+  .foto2{
+    grid-area: dos;
+  }
+  .foto3{
+    grid-area: tres;
+  }
+  .foto4{
+    grid-area: cuatro;
+  }
+  .foto5{
+    grid-area:cinco;
+  }
+  .ir_arriba{
+    position: fixed;
+    z-index: 10;
+    right: 20px;
+    bottom: 20px;
+    font-size: 40px;
+    color: var(--rosado);
+    filter: drop-shadow(0px 0px 5px #999);
+    cursor: pointer;
+  }
