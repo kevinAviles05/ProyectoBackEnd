@@ -17,6 +17,7 @@ body {
   color: #333;
   background-color: white;
 }
+
 header {
   background-color: var(--beige);
   border-top: 15px var(--rosado) solid;
@@ -27,6 +28,14 @@ header {
   margin: auto;
   align-items: center;
 }
+#map{
+  height: 500px;
+  width: 100%;
+  margin: auto;
+  display: block;
+  border: 1px red solid;
+}
+
 .contenedor_cabecera {
   display: flex;
   flex-direction: row;

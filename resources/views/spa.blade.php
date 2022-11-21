@@ -11,6 +11,14 @@
     <link rel="stylesheet" href="movil.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="fancybox/jquery.fancybox.css">
+
+    <script></script>
+
+    <script src="funciones.js"></script>
+    <script src="script.js" ></script>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script
       src="https://kit.fontawesome.com/2ee0245f3d.js"
@@ -19,9 +27,28 @@
     <script src="wow.min.js"></script>
     <script src="responsiveslides.min.js"></script>
     <script src="fancybox/jquery.fancybox.js"></script>
+
+    <script>
+      function iniciarMap(){
+    var coord={lat: 20.9682779, lng: -89.8835747};
+    var map = new google.maps.Map(document.getElementById('map'),{
+        zoom: 10,
+        center: coord
+    })
+    var marker = new google.maps.Marker({
+        position: coord,
+        map: map
+    });
+}
+    </script>
+
   </head>
   <body>
     <i class="ir_arriba fa-solid fa-circle-arrow-up"></i>
+
+
+
+
     <!-- <script src="wow.min.js"></script> -->
     <script>
     new WOW().init();
@@ -46,7 +73,6 @@
           <a class="tres" href="https://www.twitter.com"
             ><i class="fa-brands fa-twitter-square"></i
           ></a>
-          <a href="{{ url('usuario/')}}">Iniciar Sesion</a>
         </aside>
       </div>
       <nav class="ancho">
@@ -201,7 +227,84 @@
       <figure class="foto5">
         <a class="fancybox" rel="gallery" href="imagenes/galeria5.jpg" title="FOTO 5" href="#"><img src="imagenes/galeria5.jpg" alt=""></a>
       </figure>
+
     </section>
+
+    <div id="map">
+      <h1 class="prueba">UBICACION DE MUESTRA</h1>
+
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDafsFmW5v8QPMu-qcdEEfUcdkAZ9sUPmo&callback=iniciarMap"></script>
+
+    <script>
+      function iniciarMap(){
+    var coord={lat: 20.9682779, lng: -89.8835747};
+    var map = new google.maps.Map(document.getElementById('map'),{
+        zoom: 10,
+        center: coord
+    })
+    var marker = new google.maps.Marker({
+        position: coord,
+        map: map
+    });
+}
+    </script>
+    <br>
+    
+
+    <section>
+      <h1>Video de muestra</h1>
+      <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+    <div id="player"></div>
+
+<script>
+  // 2. This code loads the IFrame Player API code asynchronously.
+  var tag = document.createElement('script');
+
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  // 3. This function creates an <iframe> (and YouTube player)
+  //    after the API code downloads.
+  var player;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      height: '360',
+      width: '640',
+      videoId: '2ZEA7O3qdnE',
+      events: {
+        'onReady': onPlayerReady,
+        'onStateChange': onPlayerStateChange
+      },
+      playerVars: {
+        'autoplay': 1
+      }
+    });
+  }
+
+  // 4. The API will call this function when the video player is ready.
+  function onPlayerReady(event) {
+    event.target.playVideo();
+  }
+
+  // 5. The API calls this function when the player's state changes.
+  //    The function indicates that when playing a video (state=1),
+  //    the player should play for six seconds and then stop.
+  var done = false;
+  function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.PLAYING && !done) {
+      setTimeout(stopVideo, 6000);
+      done = true;
+    }
+  }
+  function stopVideo() {
+    player.stopVideo();
+  }
+</script>
+    </section>
+
+
     <footer>
       <picture>
         <img src="imagenes/logo_abajo.jpg" alt="" />
@@ -209,8 +312,5 @@
       <a href="#">www.spasalon.com</a>
     </footer>
 
-    <!--funciones de javascript-->
-
-    <script src="funciones.js"></script>
   </body>
 </html>
