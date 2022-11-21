@@ -172,7 +172,7 @@
           <a class="tres" href="https://www.twitter.com"
             ><i class="fa-brands fa-twitter-square"></i
           ></a>
-          <a id="iniciospa" href="{{ url('usuario/')}}">Iniciar Sesion</a>
+          <a id="iniciospa" href="{{ url('usuario/')}}">Iniciar Sesión</a>
         </aside>
       </div>
       <nav class="ancho">

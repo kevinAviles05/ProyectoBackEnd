@@ -15,7 +15,7 @@ window.addEventListener('load', ()=> {
 
     if(navigator.geolocation){
        navigator.geolocation.getCurrentPosition( posicion => {
-           //console.log(posicion.coords.latitude)
+           console.log(posicion.coords.latitude)
            lon = posicion.coords.longitude
            lat = posicion.coords.latitude
             //ubicación actual    
