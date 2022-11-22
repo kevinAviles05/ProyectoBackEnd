@@ -43,7 +43,11 @@
 }
     </script>
 
+<<<<<<< HEAD
 <script>
+=======
+    <script>
+>>>>>>> d494711e2f418df2110595407de60916984c98f5
       window.addEventListener('load', ()=> {
     let lon
     let lat
@@ -129,7 +133,10 @@
     }
 })
     </script>
+<<<<<<< HEAD
 
+=======
+>>>>>>> d494711e2f418df2110595407de60916984c98f5
   </head>
   <body>
     <i class="ir_arriba fa-solid fa-circle-arrow-up"></i>
@@ -151,7 +158,10 @@
         <picture>
           <img src="imagenes/logocabecera.jpg" alt="logo_spa_lupita" />
         </picture>
+<<<<<<< HEAD
 
+=======
+>>>>>>> d494711e2f418df2110595407de60916984c98f5
         <div class="contenedor_clima">
         <div id="caja1">
             <h1 id="temperatura-valor"></h1>
@@ -165,7 +175,10 @@
             <h1 id="viento-velocidad"></h1>
         </div>
     </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> d494711e2f418df2110595407de60916984c98f5
         <aside class="iconoredes">
           <a class="uno" href="https://www.facebook.com"
             ><i class="fa-brands fa-facebook-square"></i

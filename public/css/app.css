@@ -35,10 +35,6 @@ form input[type="submit"]{
     padding: 20px;
     text-decoration: none;
 }
-#nuevoUs:hover{
-    background-color: #AFE4EB;
-
-}
 #tablaUs{
     margin-left: 280px;
 }
@@ -67,4 +63,19 @@ td{
     text-decoration: none;
     color: black;
     margin-left: 20px;
+}
+#atras{
+    margin-left: 30px;
+    border: 1px solid black;
+    padding: 20px;
+    text-decoration: none;
+    color: black;
+}
+#atras:hover{
+    background-color: #A1F78D;
+    border: 1px solid #A1F78D;
+}
+#nuevoUs:hover{
+    background-color: #AFE4EB;
+    border: 1px solid #AFE4EB;
 }
