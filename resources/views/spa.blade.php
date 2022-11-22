@@ -7,14 +7,15 @@
     <title>SPA</title>
 
     <link rel="stylesheet" href="normalize.css" />
-    <link rel="stylesheet" href="{{ asset('css/estilos_desktop.css')}}" />
+  
+    <link rel="stylesheet" href="{{ asset('css/style.css')}}" />
     <link rel="stylesheet" href="movil.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="fancybox/jquery.fancybox.css">
 
     <script></script>
 
-    <script src="funciones.js"></script>
+    <script src="{{ asset ('funciones.js')}}"></script>
     <script src="script.js" ></script>
 
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
@@ -42,6 +43,93 @@
 }
     </script>
 
+<script>
+      window.addEventListener('load', ()=> {
+    let lon
+    let lat
+    const kelvin = 273.15
+
+
+    let temperaturaValor = document.getElementById('temperatura-valor')  
+    let temperaturaDescripcion = document.getElementById('temperatura-descripcion')  
+    
+    let ubicacion = document.getElementById('ubicacion')  
+    let iconoAnimado = document.getElementById('icono-animado') 
+
+    let vientoVelocidad = document.getElementById('viento-velocidad') 
+
+
+    if(navigator.geolocation){
+       navigator.geolocation.getCurrentPosition( posicion => {
+           //console.log(posicion.coords.latitude)
+           lon = posicion.coords.longitude
+           lat = posicion.coords.latitude
+            //ubicación actual    
+           const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=56350e7b893b544cac45440e8b2e4b5c`
+
+           //ubicación por ciudad
+           //const url = `https://api.openweathermap.org/data/2.5/weather?q=Kanasin&lang=es&units=metric&appid=$56350e7b893b544cac45440e8b2e4b5c`
+
+           //console.log(url)
+           fetch(url)
+           .then( response => { return response.json()})
+           .then( datos => {
+            //console.log(datos.main.temp)
+            let temp = Math.round(datos.main.temp - kelvin)
+            temperaturaValor.textContent = `${temp} °C`
+            //console.log(datos.weather[0].description)
+            let desc = datos.weather[0].description
+            temperaturaDescripcion.textContent = desc.toUpperCase()
+            //console.log(datos.name)
+            ubicacion.textContent = datos.name
+           // console.log(datos.wind.speed)
+            vientoVelocidad.textContent = `${datos.wind.speed} m/s`
+
+            //para iconos dinámicos
+            console.log(datos.weather[0].main)
+            switch (datos.weather[0].main) {
+                case 'Thunderstorm':
+                  iconoAnimado.src='ani////mated/thunder.svg'
+                  console.log('TORMENTA');
+                  break;
+                case 'Drizzle':
+                  iconoAnimado.src='animated/rainy-2.svg'
+                  console.log('LLOVIZNA');
+                  break;
+                case 'Rain':
+                  iconoAnimado.src='animated/rainy-7.svg'
+                  console.log('LLUVIA');
+                  break;
+                case 'Snow':
+                  iconoAnimado.src='animated/snowy-6.svg'
+                    console.log('NIEVE');
+                  break;                        
+                case 'Clear':
+                    iconoAnimado.src='animated/day.svg'
+                    console.log('LIMPIO');
+                  break;
+                case 'Atmosphere':
+                   iconoAnimado.src='animated/weather.svg'
+                    console.log('ATMOSFERA');
+                    break;  
+                case 'Clouds':
+                    iconoAnimado.src='animated/cloudy-day-1.svg'
+                    console.log('NUBES');
+                    break;  
+                default:
+                  iconoAnimado.src='animated/cloudy-day-1.svg'
+                  console.log('por defecto');
+              }
+           })
+           .catch( error => {
+            console.log(error)
+           })
+       })
+          
+    }
+})
+    </script>
+
   </head>
   <body>
     <i class="ir_arriba fa-solid fa-circle-arrow-up"></i>
@@ -63,6 +151,21 @@
         <picture>
           <img src="imagenes/logocabecera.jpg" alt="logo_spa_lupita" />
         </picture>
+
+        <div class="contenedor_clima">
+        <div id="caja1">
+            <h1 id="temperatura-valor"></h1>
+            <h1 id="temperatura-descripcion"></h1>
+        </div>
+        <div id="caja2">
+            <h2 id="ubicacion"></h2>
+        </div>
+        <div id="caja3">
+            <h3>Veloc. del Viento</h3>
+            <h1 id="viento-velocidad"></h1>
+        </div>
+    </div>
+
         <aside class="iconoredes">
           <a class="uno" href="https://www.facebook.com"
             ><i class="fa-brands fa-facebook-square"></i
@@ -73,6 +176,7 @@
           <a class="tres" href="https://www.twitter.com"
             ><i class="fa-brands fa-twitter-square"></i
           ></a>
+          <a id="iniciospa" href="{{ url('usuario/')}}">Iniciar Sesión</a>
         </aside>
       </div>
       <nav class="ancho">
@@ -230,11 +334,15 @@
 
     </section>
 
+    <h1 class="prueba">UBICACION DE MUESTRA</h1>
+
     <div id="map">
-      <h1 class="prueba">UBICACION DE MUESTRA</h1>
+      
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14897.966707391548!2d-89.68328859218754!3d21.013004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f5674891d01315f%3A0xcb8ba96b39a6031c!2sInstituto%20Tecnol%C3%B3gico%20de%20M%C3%A9rida%2C%20Campus%20Poniente!5e0!3m2!1ses!2smx!4v1669131873010!5m2!1ses!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
     </div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDafsFmW5v8QPMu-qcdEEfUcdkAZ9sUPmo&callback=iniciarMap"></script>
+    
 
     <script>
       function iniciarMap(){
@@ -302,6 +410,44 @@
     player.stopVideo();
   }
 </script>
+    </section>
+
+
+    <script>
+      window.addEventListener('load', ()=> {
+    let horaHTML = document.getElementById('hora')
+    let minutoHTML = document.getElementById('minuto')
+    let segundoHTML = document.getElementById('segundo')
+
+     const mostrarHora = () => {
+         let fecha = new Date()
+         let hora = fecha.getHours()
+         let minuto = fecha.getMinutes()
+         let segundo = fecha.getSeconds()
+
+         horaHTML.textContent =  String(hora).padStart(2, "0")
+         minutoHTML.textContent = String(minuto).padStart(2, "0")
+         segundoHTML.textContent = String(segundo).padStart(2, "0")
+
+         setTimeout(mostrarHora, 1000)
+     }
+     mostrarHora()
+})
+    
+    </script>
+
+    <section>
+      <div id="contenedor">
+        <div id="caja1">
+            <label id="hora"></label>
+        </div>
+        <div id="caja2">
+            <label id="minuto"></label>
+        </div>
+        <div id="caja3">
+            <label id="segundo"></label>
+        </div>
+    </div>
     </section>
 
 
