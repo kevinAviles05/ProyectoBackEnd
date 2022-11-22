@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="normalize.css" />
     <link rel="stylesheet" href="{{ asset('css/estilos_desktop.css')}}" />
+    <link rel="stylesheet" href="{{ asset('css/style.css')}}" />
     <link rel="stylesheet" href="movil.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="fancybox/jquery.fancybox.css">
@@ -150,14 +151,14 @@
           <img src="imagenes/logocabecera.jpg" alt="logo_spa_lupita" />
         </picture>
         <div class="contenedor_clima">
-        <div id="caja1">
+        <div id="caja">
             <h1 id="temperatura-valor"></h1>
             <h1 id="temperatura-descripcion"></h1>
         </div>
-        <div id="caja2">
+        <div id="caja">
             <h2 id="ubicacion"></h2>
         </div>
-        <div id="caja3">
+        <div id="caja">
             <h3>Veloc. del Viento</h3>
             <h1 id="viento-velocidad"></h1>
         </div>
@@ -333,8 +334,10 @@
     <div id="map">
       <h1 class="prueba">UBICACION DE MUESTRA</h1>
 
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.554143082198!2d-89.62478453588867!3d21.01050219377913!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f5676a62e74551d%3A0xfa87b7045b382a6!2zVGVjbm9sw7NnaWNvLCA5NzEyMCBNw6lyaWRhLCBZdWMu!5e0!3m2!1ses!2smx!4v1669153338264!5m2!1ses!2smx" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
     </div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDafsFmW5v8QPMu-qcdEEfUcdkAZ9sUPmo&callback=iniciarMap"></script>
+    
 
     <script>
       function iniciarMap(){
@@ -372,7 +375,7 @@
     player = new YT.Player('player', {
       height: '360',
       width: '640',
-      videoId: '2ZEA7O3qdnE',
+      videoId: 'QZbuj3RJcjI',
       events: {
         'onReady': onPlayerReady,
         'onStateChange': onPlayerStateChange
@@ -402,6 +405,43 @@
     player.stopVideo();
   }
 </script>
+    </section>
+
+    <script>
+      window.addEventListener('load', ()=> {
+    let horaHTML = document.getElementById('hora')
+    let minutoHTML = document.getElementById('minuto')
+    let segundoHTML = document.getElementById('segundo')
+
+     const mostrarHora = () => {
+         let fecha = new Date()
+         let hora = fecha.getHours()
+         let minuto = fecha.getMinutes()
+         let segundo = fecha.getSeconds()
+
+         horaHTML.textContent =  String(hora).padStart(2, "0")
+         minutoHTML.textContent = String(minuto).padStart(2, "0")
+         segundoHTML.textContent = String(segundo).padStart(2, "0")
+
+         setTimeout(mostrarHora, 1000)
+     }
+     mostrarHora()
+})
+    </script>
+
+    <section>
+      <h1>Muestra de la hora</h1>
+    <div id="contenedor">
+        <div id="caja1">
+            <label id="hora"></label>
+        </div>
+        <div id="caja2">
+            <label id="minuto"></label>
+        </div>
+        <div id="caja3">
+            <label id="segundo"></label>
+        </div>
+    </div>
     </section>
 
 
